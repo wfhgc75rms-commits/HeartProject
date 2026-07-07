@@ -1,47 +1,81 @@
+// ⭐ إنشاء النجوم
 
+for(let i = 0; i < 120; i++){
 
-const stars = document.querySelector(".stars");
+    const star = document.createElement("div");
 
-for(let i=0;i<120;i++){
+    star.className = "star";
 
-    const star=document.createElement("div");
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.top = Math.random() * window.innerHeight + "px";
 
-    star.className="star";
+    star.style.animationDuration = (1 + Math.random() * 3) + "s";
 
-    star.style.left=Math.random()*100+"%";
-
-    star.style.top=Math.random()*100+"%";
-
-    star.style.animationDelay=Math.random()*2+"s";
-
-    stars.appendChild(star);
+    document.body.appendChild(star);
 
 }
 
-// 💕
+// 💖 قلوب تطير
 
 function createHeart(){
 
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
 
-    heart.className="floating-heart";
+    heart.className = "floating-heart";
 
-    heart.innerHTML="💖";
+    heart.innerHTML = "💖";
 
-    heart.style.left=Math.random()*100+"vw";
+    heart.style.left = Math.random() * 100 + "vw";
 
-    heart.style.bottom="-40px";
-
-    heart.style.fontSize=(18+Math.random()*20)+"px";
+    heart.style.animationDuration = (5 + Math.random() * 3) + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         heart.remove();
 
-    },7000);
+    },8000);
 
 }
 
-setInterval(createHeart,700);
+setInterval(createHeart,500);
+
+// 🌸 ساكورا
+
+function createFlower(){
+
+    const flower = document.createElement("div");
+
+    flower.className = "sakura";
+
+    flower.innerHTML = "🌸";
+
+    flower.style.left = Math.random() * 100 + "vw";
+
+    flower.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+
+        flower.remove();
+
+    },10000);
+
+}
+
+setInterval(createFlower,400);
+// زر البداية
+
+const openBtn = document.getElementById("openBtn");
+const startScreen = document.getElementById("startScreen");
+const content = document.getElementById("content");
+
+openBtn.onclick = function(){
+
+    startScreen.style.display = "none";
+
+    content.style.display = "block";
+
+};
