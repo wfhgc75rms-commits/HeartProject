@@ -1,0 +1,406 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Quicksand',sans-serif;
+
+    background:linear-gradient(
+        180deg,
+        #dff6ff 0%,
+        #d8f0ff 30%,
+        #f9ecff 70%,
+        #ffeaf5 100%
+    );
+
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+
+.container{
+
+    width:100%;
+    max-width:1000px;
+
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:60px 20px;
+}
+
+#heart{
+
+    width:170px;
+    height:170px;
+
+    background:#ffb6c1;
+
+    position:relative;
+
+    transform:rotate(-45deg);
+
+    animation:beat 1.3s infinite;
+
+    margin-bottom:80px;
+
+    box-shadow:
+    0 0 40px #ffb6c1;
+}
+
+#heart::before,
+#heart::after{
+
+content:"";
+
+width:170px;
+height:170px;
+
+background:#ffb6c1;
+
+border-radius:50%;
+
+position:absolute;
+
+}
+
+#heart::before{
+
+top:-85px;
+left:0;
+
+}
+
+#heart::after{
+
+left:85px;
+top:0;
+
+}
+
+@keyframes beat{
+
+0%{
+
+transform:rotate(-45deg) scale(1);
+
+}
+
+50%{
+
+transform:rotate(-45deg) scale(1.08);
+
+}
+
+100%{
+
+transform:rotate(-45deg) scale(1);
+
+}
+
+}
+
+
+
+.card{
+
+width:90%;
+
+max-width:850px;
+
+background:rgba(255,255,255,.35);
+
+backdrop-filter:blur(15px);
+
+border-radius:30px;
+
+padding:35px;
+
+margin-bottom:45px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.08);
+
+}
+
+
+.title{
+
+text-align:center;
+
+font-size:26px;
+
+color:#ff69b4;
+
+margin-bottom:20px;
+
+}
+
+
+
+.message,
+.second p{
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#5c5c5c;
+
+white-space:pre-line;
+
+}
+
+
+
+.video-box{
+
+margin-bottom:40px;
+
+}
+
+.video-box iframe{
+
+width:800px;
+
+max-width:95vw;
+
+height:450px;
+
+border:none;
+
+border-radius:25px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.2;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(2);
+    }
+}
+
+
+
+.cloud{
+    position:fixed;
+    width:220px;
+    height:70px;
+    background:white;
+    border-radius:100px;
+    opacity:.6;
+    filter:blur(1px);
+}
+
+.cloud::before,
+.cloud::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:90px;
+    height:90px;
+    left:25px;
+    top:-35px;
+}
+
+.cloud::after{
+    width:70px;
+    height:70px;
+    right:30px;
+    top:-25px;
+}
+
+.cloud1{
+    top:80px;
+    left:50px;
+}
+
+.cloud2{
+    top:170px;
+    right:80px;
+}
+
+
+
+.floating-heart{
+    position:fixed;
+    color:#ff8fc2;
+    font-size:20px;
+    animation:floatUp 7s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-900px);
+        opacity:0;
+    }
+
+}
+/* ظهور العناصر */
+
+.card,
+.video-box,
+#heart{
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+#heart{
+
+    box-shadow:
+    0 0 25px #ffb6c1,
+    0 0 50px #ffc6da,
+    0 0 80px #ffd6e5;
+
+}
+
+
+
+.card{
+
+    max-height:420px;
+    overflow-y:auto;
+
+}
+
+
+
+.card::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.card::-webkit-scrollbar-thumb{
+
+    background:#ffb6c1;
+    border-radius:20px;
+
+}
+
+.card::-webkit-scrollbar-track{
+
+    background:#ffffff66;
+
+}
+
+
+
+@media(max-width:768px){
+
+.title{
+
+    font-size:20px;
+
+}
+
+.message,
+.second p{
+
+    font-size:15px;
+
+}
+
+.video-box iframe{
+
+    height:220px;
+
+}
+
+#heart{
+
+    width:120px;
+    height:120px;
+
+}
+
+#heart::before,
+#heart::after{
+
+    width:120px;
+    height:120px;
+
+}
+
+#heart::before{
+
+    top:-60px;
+
+}
+
+#heart::after{
+
+    left:60px;
+
+}
+
+}
